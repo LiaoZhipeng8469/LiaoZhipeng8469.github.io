@@ -33,40 +33,58 @@ const research = [
       en: 'Full-stack accelerator design spanning RRAM–SRAM hybrid memory, digital SRAM CIM and 1T1C eDRAM, with workload-aware dataflow for retrieval, attention and multimodal restoration.',
       zh: '面向检索、注意力与多模态信号恢复，开展覆盖 RRAM–SRAM 混合存储、数字 SRAM CIM 与 1T1C eDRAM 的全栈加速器设计。',
     },
-    tags: ['ReRAM', 'SRAM CIM', 'Dataflow'],
+    tags: [
+      { en: 'ReRAM', zh: 'ReRAM' },
+      { en: 'SRAM CIM', zh: 'SRAM CIM' },
+      { en: 'eDRAM CIM', zh: 'eDRAM CIM' },
+      { en: 'Dataflow', zh: '数据流' },
+    ],
   },
   {
     icon: BrainCircuit,
     number: '02',
     title: { en: 'Neuromorphic Systems', zh: '神经形态计算系统' },
-    subtitle: { en: 'SNN · FPGA · Algorithm–hardware co-design', zh: '脉冲神经网络 · FPGA · 软硬件协同' },
+    subtitle: { en: 'Brain-inspired NN Deployment · Algorithm–Hardware Co-design', zh: '类脑神经网络部署 · 算法硬件 Co-design' },
     description: {
-      en: 'Resource-efficient Spiking-YOLO deployment, adaptive sparse computation and memory scheduling for real-time visual recognition on FPGA-based neuromorphic platforms.',
-      zh: '研究 Spiking-YOLO 的高效部署、自适应稀疏计算与存储调度，构建面向实时视觉识别的 FPGA 神经形态计算平台。',
+      en: 'Resource-efficient brain-inspired neural network deployment, adaptive sparse computation and memory scheduling for real-time visual recognition on neuromorphic platforms.',
+      zh: '研究类脑神经网络的高效部署、自适应稀疏计算与存储调度，构建面向实时视觉识别的神经形态计算平台。',
     },
-    tags: ['SNN', 'FPGA', 'Sparsity'],
+    tags: [
+      { en: 'Neural Deployment', zh: '类脑神经网络部署' },
+      { en: 'Co-design', zh: '算法硬件 Co-design' },
+      { en: 'Sparsity', zh: '稀疏' },
+    ],
   },
   {
     icon: Cpu,
     number: '03',
-    title: { en: 'Sparse & Quantized AI', zh: '稀疏与低精度计算' },
-    subtitle: { en: 'Point cloud · Spiking Transformer · Edge AI', zh: '点云 · 脉冲 Transformer · 边缘智能' },
+    title: { en: 'AI Acceleration Technologies', zh: 'AI 加速技术' },
+    subtitle: { en: 'Quantization · Reconfigurable Computing · Sparsity · Data Movement', zh: '量化 · 可重构 · 稀疏 · 数据搬运' },
     description: {
-      en: 'Hybrid sparsity-aware processing and low-bit arithmetic, including locality-dependent KV caching and reconfigurable compute patterns for energy-efficient edge inference.',
-      zh: '研究混合稀疏感知与低位宽运算，通过局部性 KV 缓存和可重构计算模式提升边缘智能推理能效。',
+      en: 'Quantization, reconfigurable compute patterns, hybrid sparsity and data-movement optimization for energy-efficient AI inference across edge workloads.',
+      zh: '面向边缘 AI 工作负载，研究量化、可重构计算、混合稀疏与数据搬运优化，提升推理能效与硬件利用率。',
     },
-    tags: ['Quantization', 'KV Cache', 'Reconfigurable'],
+    tags: [
+      { en: 'Quantization', zh: '量化' },
+      { en: 'Reconfigurable', zh: '可重构' },
+      { en: 'Sparsity', zh: '稀疏' },
+      { en: 'Data Movement', zh: '数据搬运' },
+    ],
   },
   {
     icon: Activity,
     number: '04',
     title: { en: 'Neural Interfaces', zh: '脑机接口芯片' },
-    subtitle: { en: 'sEEG · Sparse sensing · Neural decoding', zh: 'sEEG · 稀疏感知 · 神经解码' },
+    subtitle: { en: 'sEEG Decoding · Sparse Sensing · Neural Interfaces', zh: 'sEEG 解码 · 稀疏感知 · 脑机接口' },
     description: {
       en: 'High-channel-count neural acquisition and decoding, combining predictive focused sampling, CIM-based processing and adaptive thresholding for bandwidth-efficient brain–computer interfaces.',
       zh: '面向高通量神经信号采集与解码，融合预测聚焦采样、存内计算和自适应阈值策略，降低脑机接口的数据带宽与处理开销。',
     },
-    tags: ['BCI', '40 nm', 'Predictive Sampling'],
+    tags: [
+      { en: 'BCI', zh: 'BCI' },
+      { en: 'sEEG Decoding', zh: 'sEEG 解码' },
+      { en: 'Predictive Sampling', zh: '预测采样' },
+    ],
   },
 ]
 
@@ -408,7 +426,7 @@ function App() {
                   <h3>{t(item.title)}</h3>
                   <p className="research-subtitle">{t(item.subtitle)}</p>
                   <p className="research-description">{t(item.description)}</p>
-                  <div className="tag-list">{item.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+                  <div className="tag-list">{item.tags.map((tag) => <span key={tag.en}>{t(tag)}</span>)}</div>
                 </article>
               )
             })}
