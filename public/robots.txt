@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://liaozhipeng8469.github.io/sitemap.xml
